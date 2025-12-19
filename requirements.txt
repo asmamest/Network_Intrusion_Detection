@@ -5,3 +5,10 @@ tensorflow
 joblib
 streamlit
 matplotlib
+seaborn
+imblearn
+xgboost
+category-encoders
+plotly
+plotly-express
+nbformat
