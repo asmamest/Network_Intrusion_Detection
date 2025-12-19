@@ -12,11 +12,12 @@ LABEL_ENCODER_PATH = './Data/label_classes/le2_classes.npy'
 file_path='./sample_input.csv'
 
 # Helper Functions
-def load_model(model_path):
-    """Load the trained BiLSTM model and the label encoder classes."""
+def load_trained_model(model_path):
+    """Load the trained BiLSTM model."""
+    from tensorflow.keras.models import load_model  # import local pour éviter conflit
     model = load_model(model_path, compile=False)
-
     return model
+
 
 
 def preprocess_sample_input(file_path_input):
@@ -73,7 +74,7 @@ if __name__ == "__main__":
     X_sample = preprocess_sample_input(file_path)
 
     # Load the trained model
-    model = load_model(MODEL_PATH)
+    model = load_trained_model(MODEL_PATH)
 
     # Make predictions and get class names
     predicted_class_names = predict_classes(model, X_sample, le2_classes)
